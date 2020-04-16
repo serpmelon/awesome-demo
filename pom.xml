@@ -6,7 +6,43 @@
 
     <groupId>org.example</groupId>
     <artifactId>awesome-demo</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <java.version>1.8</java.version>
+
+        <spring-boot.version>2.1.8.RELEASE</spring-boot.version>
+        <sharding-sphere.version>4.0.0</sharding-sphere.version>
+        <mybatis-springboot.version>2.1.0</mybatis-springboot.version>
+        <pagehelper.version>5.1.10</pagehelper.version>
+        <druid-springboot.version>1.1.20</druid-springboot.version>
+        <mysql.version>6.0.6</mysql.version>
+        <!--tools-->
+        <guava.version>28.0-jre</guava.version>
+        <fastjson.version>1.2.58</fastjson.version>
+        <commons-collections4.version>4.4</commons-collections4.version>
+        <commons-lang.version>3.9</commons-lang.version>
+        <swagger.version>2.9.2</swagger.version>
+        <groovy.version>2.4.7</groovy.version>
+        <!--build-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.source.version>1.8</java.source.version>
+        <java.target.version>1.8</java.target.version>
+        <java.encoding>UTF-8</java.encoding>
+        <maven.compiler.version>3.8.0</maven.compiler.version>
+        <lombok.version>1.18.4</lombok.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <artifactId>guava</artifactId>
+                <groupId>com.google.guava</groupId>
+                <version>${guava.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>
@@ -21,5 +57,8 @@
             </plugin>
         </plugins>
     </build>
+    <modules>
+        <module>event-bus</module>
+    </modules>
 
 </project>
