@@ -10,25 +10,25 @@ import java.util.concurrent.Executors;
  * @Description intelligent platform event superclass
  * @Date 10:35 上午 2020/4/16
  **/
-public class AwesomeEventBusDriver<T> {
+public class AwesomeEventBusDriver {
 
     private static EventBus asyncEventBus = new AsyncEventBus(Executors.newFixedThreadPool(2));
 
     private static EventBus eventBus = new EventBus();
 
-    public void registerAsync(Object object) {
+    public static void registerAsync(Object object) {
         asyncEventBus.register(object);
     }
 
-    public void publishAsyncEvent(T event) {
+    public static <T> void publishAsyncEvent(T event) {
         asyncEventBus.post(event);
     }
 
-    public void register(Object object) {
+    public static void register(Object object) {
         eventBus.register(object);
     }
 
-    public void publishEvent(T event) {
+    public static <T> void publishEvent(T event) {
         eventBus.post(event);
     }
 }
