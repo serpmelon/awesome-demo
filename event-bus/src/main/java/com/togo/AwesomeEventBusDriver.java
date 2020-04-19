@@ -20,8 +20,8 @@ public class AwesomeEventBusDriver {
         asyncEventBus.register(object);
     }
 
-    public static void publishAsyncEvent(AwesomeEventObject event) {
-        asyncEventBus.post(event);
+    public static void publishAsyncAnything(Object object) {
+        asyncEventBus.post(object);
     }
 
     public static void register(Object object) {
