@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 
 /**
  * @Author taiyn
- * @Description intelligent platform event superclass
+ * @Description
  * @Date 10:35 上午 2020/4/16
  **/
 public class AwesomeEventBusDriver {
@@ -20,7 +20,7 @@ public class AwesomeEventBusDriver {
         asyncEventBus.register(object);
     }
 
-    public static <T> void publishAsyncEvent(T event) {
+    public static void publishAsyncEvent(AwesomeEventObject event) {
         asyncEventBus.post(event);
     }
 
@@ -28,7 +28,11 @@ public class AwesomeEventBusDriver {
         eventBus.register(object);
     }
 
-    public static <T> void publishEvent(T event) {
+    public static void publishEvent(AwesomeEventObject event) {
         eventBus.post(event);
+    }
+
+    public static void publishAnything(Object object) {
+        eventBus.post(object);
     }
 }

@@ -13,4 +13,9 @@ public class AwesomeSubscriber {
     public void listen(Object obj) {
         System.out.println(obj);
     }
+
+    @Subscribe
+    public void listen1(Object obj) {
+        System.out.println(obj);
+    }
 }
