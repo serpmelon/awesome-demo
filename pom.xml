@@ -14,10 +14,10 @@
 
         <spring-boot.version>2.1.8.RELEASE</spring-boot.version>
         <sharding-sphere.version>4.0.0</sharding-sphere.version>
-        <mybatis-springboot.version>2.1.0</mybatis-springboot.version>
+        <mybatis.version>3.5.2</mybatis.version>
         <pagehelper.version>5.1.10</pagehelper.version>
         <druid-springboot.version>1.1.20</druid-springboot.version>
-        <mysql.version>6.0.6</mysql.version>
+        <mysql.version>8.0.17</mysql.version>
         <!--tools-->
         <guava.version>28.0-jre</guava.version>
         <junit.version>4.12</junit.version>
@@ -26,6 +26,8 @@
         <commons-lang.version>3.9</commons-lang.version>
         <swagger.version>2.9.2</swagger.version>
         <groovy.version>2.4.7</groovy.version>
+        <poi.version>4.1.0</poi.version>
+        <asm.version>7.0</asm.version>
         <!--build-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.source.version>1.8</java.source.version>
@@ -48,6 +50,23 @@
                 <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm</artifactId>
+                <version>${asm.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -66,6 +85,8 @@
     </build>
     <modules>
         <module>event-bus</module>
+        <module>mybatis</module>
+        <module>poi</module>
     </modules>
 
 </project>

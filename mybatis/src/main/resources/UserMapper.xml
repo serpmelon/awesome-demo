@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.togo.repository.UserMapper">
+
+    <resultMap type="com.togo.entity.User" id="UserMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="xx" column="xx" jdbcType="VARCHAR"/>
+        <result property="appid" column="appid" jdbcType="VARCHAR"/>
+        <result property="nickname" column="nickname" jdbcType="VARCHAR"/>
+        <result property="passtest" column="passtest" jdbcType="INTEGER"/>
+        <result property="signedPdfUrl" column="signed_pdf_url" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="UserMap">
+        select
+          id, xx, appid, nickname, passtest, signed_pdf_url
+        from wx.user
+        <where>
+            <if test="id != null">
+               and id = #{id}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>
