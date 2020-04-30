@@ -54,7 +54,6 @@ public class UserMapperTest {
 
         // 使用自定义的ClassLoader
         MyClassLoader cl = new MyClassLoader();
-        // 加载我们生成的 HelloWorld 类
         Class<?> clazz = cl.defineClass("com.togo.asm.TestMapper", bytes);
         configuration.addMapper(clazz);
 
