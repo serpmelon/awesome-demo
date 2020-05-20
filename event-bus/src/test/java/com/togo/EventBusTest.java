@@ -1,6 +1,8 @@
 package com.togo;
 
 import com.togo.lesson1.*;
+import com.togo.lesson2.ErrorSub;
+import com.togo.lesson2.MultiThreadSub;
 import org.junit.Test;
 
 /**
@@ -13,6 +15,7 @@ public class EventBusTest {
     @Test
     public void 科一() {
 
+        AwesomeEventBusDriver.register(new AwesomeStudent());
         AwesomeEventBusDriver.register(new AwesomeStudent());
         AwesomeEventBusDriver.publishAnything("通过~");
     }
@@ -72,5 +75,53 @@ public class EventBusTest {
             i++;
             System.out.println(i + "s");
         }
+    }
+
+    @Test
+    public void 异常开车() {
+
+        AwesomeEventBusDriver.register(new ErrorSub());
+
+        try {
+
+            AwesomeEventBusDriver.publishAnything("xxxx");
+        } catch (Exception e) {
+            System.out.println(123123);
+            e.printStackTrace();
+        }
+        AwesomeEventBusDriver.publishAnything(90);
+        AwesomeEventBusDriver.publishAnything(100L);
+    }
+
+    @Test
+    public void 多线程开车() throws InterruptedException {
+        MultiThreadSub threadSub = new MultiThreadSub();
+
+        AwesomeEventBusDriver.register(threadSub);
+        int count = 10000;
+        Thread t1 = new Thread(() -> {
+
+            int c1 = count;
+            while (c1 > 0) {
+                c1--;
+                AwesomeEventBusDriver.publishAnything(1);
+            }
+        });
+
+        Thread t2 = new Thread(() -> {
+
+            int c1 = count;
+            while (c1 > 0) {
+                c1--;
+                AwesomeEventBusDriver.publishAnything(1);
+            }
+        });
+        t1.start();
+        t2.start();
+
+        t1.join();
+        t2.join();
+
+        threadSub.print();
     }
 }
