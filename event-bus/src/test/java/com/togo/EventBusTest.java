@@ -2,6 +2,7 @@ package com.togo;
 
 import com.togo.lesson1.*;
 import com.togo.lesson2.ErrorSub;
+import com.togo.lesson2.GenericObject;
 import com.togo.lesson2.MultiThreadSub;
 import org.junit.Test;
 
@@ -18,6 +19,7 @@ public class EventBusTest {
         AwesomeEventBusDriver.register(new AwesomeStudent());
         AwesomeEventBusDriver.register(new AwesomeStudent());
         AwesomeEventBusDriver.publishAnything("通过~");
+        AwesomeEventBusDriver.publishAnything(123);
     }
 
     @Test
@@ -123,5 +125,15 @@ public class EventBusTest {
         t2.join();
 
         threadSub.print();
+    }
+
+    @Test
+    public void 泛型() {
+
+        AwesomeEventBusDriver.register(new GenericObject<String>());
+        AwesomeEventBusDriver.register(new GenericObject());
+        AwesomeEventBusDriver.publishAnything(90);
+        int a = 5;
+        AwesomeEventBusDriver.publishAnything(a);
     }
 }

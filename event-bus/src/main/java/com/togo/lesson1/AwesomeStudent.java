@@ -10,7 +10,7 @@ import com.google.common.eventbus.Subscribe;
 public class AwesomeStudent {
 
     @Subscribe
-    public void 科一(String obj) {
+    private void 科一(String obj) {
 
         System.out.println("科一" + obj);
     }
