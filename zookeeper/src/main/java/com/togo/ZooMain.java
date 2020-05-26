@@ -157,7 +157,7 @@ public class ZooMain implements Watcher {
      * create multiple directory and set <code>data</code> to the deepest node,
      * create with <code>null</code> data if any directory do not exist
      *
-     * @param data data
+     * @param data  data
      * @param nodes multiple node
      */
     public void createDeepNode(String data, String... nodes) {
@@ -176,6 +176,7 @@ public class ZooMain implements Watcher {
         dir.append(nodes[nodes.length - 1]);
         createNode(dir.toString(), data);
     }
+
     /**
      * 监听事件
      *
@@ -202,18 +203,19 @@ public class ZooMain implements Watcher {
     public static void main(String[] args) throws InterruptedException, UnknownHostException {
 
         InetAddress addr = InetAddress.getLocalHost();
-        System.out.println("Local HostAddress: "+addr.getHostAddress());
-                String hostname = addr.getHostName();
-        System.out.println("Local host name: "+hostname);
+        System.out.println("Local HostAddress: " + addr.getHostAddress());
+        String hostname = addr.getHostName();
+        System.out.println("Local host name: " + hostname);
 
-//        String host = "127.0.0.1:2181";
-//        ZooMain zooMain = new ZooMain(host, 15000);
-//
-//        String node = "/javas";
-//        if (zooMain.exists(node, true))
-//            System.out.println(123);
-//        else
-//            System.out.println(456);
+        String host = "127.0.0.1:2181";
+        ZooMain zooMain = new ZooMain(host, 15000);
+
+        String node = "/javas";
+        if (zooMain.exists(node, true))
+            System.out.println(123);
+        else
+            zooMain.createNode(node, "123");
+        zooMain.createNode(node, "456");
 //        System.out.println(zooMain.selectChildren(node));
 ////            zooMain.createNode(node, "wahaha".getBytes());
 ////        System.out.println(zooMain.select(node));
