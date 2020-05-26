@@ -19,6 +19,7 @@
         <pagehelper.version>5.1.10</pagehelper.version>
         <druid-springboot.version>1.1.20</druid-springboot.version>
         <mysql.version>8.0.17</mysql.version>
+        <zk.version>3.4.14</zk.version>
         <!--tools-->
         <guava.version>28.0-jre</guava.version>
         <junit.version>4.12</junit.version>
@@ -79,6 +80,17 @@
                 <artifactId>asm</artifactId>
                 <version>${asm.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.zookeeper/zookeeper -->
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
@@ -100,6 +112,7 @@
         <module>event-bus</module>
         <module>mybatis</module>
         <module>poi</module>
+        <module>zookeeper</module>
     </modules>
 
 </project>
