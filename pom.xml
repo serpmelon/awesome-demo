@@ -113,6 +113,7 @@
         <module>mybatis</module>
         <module>poi</module>
         <module>zookeeper</module>
+        <module>jdk</module>
     </modules>
 
 </project>

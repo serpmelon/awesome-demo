@@ -210,12 +210,11 @@ public class ZooMain implements Watcher {
         String host = "127.0.0.1:2181";
         ZooMain zooMain = new ZooMain(host, 15000);
 
-        String node = "/javas";
+        String node = "/javasabc/qwe";
         if (zooMain.exists(node, true))
             System.out.println(123);
         else
             zooMain.createNode(node, "123");
-        zooMain.createNode(node, "456");
 //        System.out.println(zooMain.selectChildren(node));
 ////            zooMain.createNode(node, "wahaha".getBytes());
 ////        System.out.println(zooMain.select(node));
