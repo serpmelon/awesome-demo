@@ -10,7 +10,7 @@ import java.util.ServiceLoader;
  **/
 public class Launcher {
 
-    public static GreetOrBye getInstance(String name) {
+    public static GreetOrBye say(String name) {
 
         ServiceLoader<GreetOrBye> greetOrByeServiceLoader = ServiceLoader.load(GreetOrBye.class);
 
@@ -25,6 +25,6 @@ public class Launcher {
 
     public static void main(String[] args) {
 
-        getInstance("wahahah");
+        say("wahahah");
     }
 }
