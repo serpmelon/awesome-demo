@@ -5,7 +5,7 @@ import com.togo.spi.helloworld.GreetOrBye;
 
 /**
  * @Author taiyn
- * @Description TODO
+ * @Description
  * @Date 6:45 下午 2020/6/5
  **/
 public class Greet implements GreetOrBye {
