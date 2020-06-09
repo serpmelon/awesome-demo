@@ -10,7 +10,7 @@ import java.util.ServiceLoader;
  **/
 public class Launcher {
 
-    public static GreetOrBye say(String name) {
+    public static void say(String name) {
 
         ServiceLoader<GreetOrBye> greetOrByeServiceLoader = ServiceLoader.load(GreetOrBye.class);
 
@@ -19,8 +19,6 @@ public class Launcher {
             GreetOrBye greetOrBye = iterator.next();
             System.out.println(greetOrBye.say(name));
         }
-
-        return null;
     }
 
     public static void main(String[] args) {

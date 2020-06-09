@@ -2,7 +2,7 @@ package com.togo.spi.helloworld;
 
 /**
  * @Author taiyn
- * @Description TODO
+ * @Description
  * @Date 6:43 下午 2020/6/5
  **/
 public interface GreetOrBye {
