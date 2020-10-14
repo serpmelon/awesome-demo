@@ -92,6 +92,11 @@
                 <version>${fastjson.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-elasticsearch</artifactId>
+                <version>4.0.0.RELEASE</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -114,6 +119,7 @@
         <module>poi</module>
         <module>zookeeper</module>
         <module>jdk</module>
+        <module>netty</module>
     </modules>
 
 </project>

@@ -13,6 +13,12 @@ import org.junit.Test;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.lang.reflect.Method;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import static org.junit.Assert.*;
 
@@ -62,5 +68,23 @@ public class UserMapperTest {
         Object result = query.invoke(testMapper, 1);
 
         System.out.println("dyn : " + result);
+    }
+
+    public static void main(String[] args) {
+        String date = "2020-09-24";
+
+        System.out.println(getLocalDateFromString(date, "yyyy-MM-dd"));
+        System.out.println(getDateFromLocalDate(getLocalDateFromString(date, "yyyy-MM-dd")));
+    }
+
+    // 这里的pattern替换成你们的枚举类
+    public static LocalDate getLocalDateFromString(String dateStr, String pattern) {
+
+        return LocalDate.parse(dateStr, DateTimeFormatter.ofPattern(pattern));
+    }
+
+    public static Date getDateFromLocalDate(LocalDate localDate) {
+
+        return Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
     }
 }

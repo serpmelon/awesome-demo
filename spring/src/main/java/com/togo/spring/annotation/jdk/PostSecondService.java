@@ -16,7 +16,7 @@ public class PostSecondService {
     @Autowired
     private PostFirstService firstService;
 
-    @PostConstruct
+//    @PostConstruct
     public void print() {
         System.out.println("second " + this.getClass().getName());
         System.out.println("second " + firstService.getClass().getName());

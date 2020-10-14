@@ -4,6 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 <!--    <properties resource=""/>-->
+    <settings>
+        <!-- 打印查询语句 -->
+        <setting name="logImpl" value="STDOUT_LOGGING" />
+    </settings>
+
+
 
     <environments default="development">
         <environment id="development">
@@ -19,4 +25,5 @@
     <mappers>
         <mapper resource="UserMapper.xml"/>
     </mappers>
+
 </configuration>
