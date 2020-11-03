@@ -16,13 +16,13 @@ public class PostFirstService {
     @Autowired
     private PostSecondService secondService;
 
-//    @PostConstruct
+    @PostConstruct
     public void print() {
 
         System.out.println("first " + this.getClass().getName());
         System.out.println("first " + secondService.getClass().getName());
         System.out.println("first @@@@@@@@@@@@@");
-        secondService.print();
+//        secondService.print();
         System.out.println("first @@@@@@@@@@@@@@@");
     }
 }
