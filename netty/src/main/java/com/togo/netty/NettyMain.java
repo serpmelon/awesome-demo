@@ -9,6 +9,9 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
+import java.net.ServerSocket;
+import java.net.Socket;
+
 /**
  * @Author taiyn
  * @Description TODO
@@ -53,5 +56,8 @@ public class NettyMain {
 
         int port = 9999;
         new NettyMain(port).run();
+
+        ServerSocket serverSocket = new ServerSocket();
+        Socket accept = serverSocket.accept();
     }
 }
