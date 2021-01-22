@@ -120,6 +120,7 @@
         <module>zookeeper</module>
         <module>jdk</module>
         <module>netty</module>
+        <module>thrift</module>
     </modules>
 
 </project>
