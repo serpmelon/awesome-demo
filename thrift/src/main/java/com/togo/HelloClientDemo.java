@@ -29,8 +29,7 @@ public class HelloClientDemo {
         try {
             transport = new TSocket(SERVER_IP, SERVER_PORT, TIMEOUT);
             TProtocol protocol = new TBinaryProtocol(transport);
-            HelloWorldService.Client client = new HelloWorldService.Client(
-                    protocol);
+            HelloWorldService.Client client = new HelloWorldService.Client(protocol);
             transport.open();
             String result = client.sayHello(userName);
             System.out.println("thrift remote call : " + result);

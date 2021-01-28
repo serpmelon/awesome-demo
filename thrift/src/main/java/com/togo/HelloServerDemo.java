@@ -22,8 +22,8 @@ public class HelloServerDemo {
             TProcessor tprocessor = new HelloWorldService.Processor(new HelloWorldImpl());
             TServerSocket serverTransport = new TServerSocket(SERVER_PORT);
             TServer.Args tArgs = new TServer.Args(serverTransport);
-            tArgs.processor(tprocessor);
-            tArgs.protocolFactory(new TBinaryProtocol.Factory());
+//            tArgs.processor(tprocessor);
+//            tArgs.protocolFactory(new TBinaryProtocol.Factory());
             TServer server = new TSimpleServer(tArgs);
             server.serve();
         } catch (Exception e) {
