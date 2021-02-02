@@ -7,6 +7,9 @@ import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
 import org.apache.thrift.transport.TTransportException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author : taiyn
  * Date    : 2020/12/24
@@ -48,8 +51,22 @@ public class HelloClientDemo {
      * @param args
      */
     public static void main(String[] args) {
-        HelloClientDemo client = new HelloClientDemo();
-        client.startClient("THRIFT");
+//        HelloClientDemo client = new HelloClientDemo();
+//        client.startClient("THRIFT");
 
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+        list.stream().forEach(item -> {
+            if (item == 1) {
+                System.out.println("dddd");
+                System.out.println(item);
+                return;
+            }else {
+                System.out.println(item);
+            }
+        });
     }
 }
