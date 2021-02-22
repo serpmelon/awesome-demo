@@ -1,5 +1,6 @@
 package com.togo.nio;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
@@ -7,6 +8,7 @@ import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
+import java.rmi.registry.Registry;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -24,9 +26,8 @@ public class NIOEchoServer {
     public static void main(String[] args) throws IOException {
 
         Selector selector = Selector.open();
-        // TODO taiyn 2021/2/2 9:55 上午 为什么是这个channel? 可以用别的么
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
-        serverSocketChannel.bind(new InetSocketAddress("localhost", 5555));
+        serverSocketChannel.bind(new InetSocketAddress("localhost", 5454));
         serverSocketChannel.configureBlocking(false);
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
         ByteBuffer buffer = ByteBuffer.allocate(256);
@@ -40,6 +41,15 @@ public class NIOEchoServer {
 
                 SelectionKey key = iterator.next();
 
+                if(key.isAcceptable()) {
+                    register(selector, serverSocketChannel);
+                }
+
+                if(key.isReadable()) {
+                    answerWithEcho(buffer, key);
+                }
+
+                iterator.remove();
             }
         }
     }
@@ -56,4 +66,23 @@ public class NIOEchoServer {
 
         }
     }
+
+    private static void register(Selector  selector, ServerSocketChannel serverSocketChannel) throws IOException {
+
+        SocketChannel socketChannel = serverSocketChannel.accept();
+        socketChannel.configureBlocking(false);
+        socketChannel.register(selector, SelectionKey.OP_READ);
+    }
+
+    public static Process start() throws IOException {
+
+        String javaHome = System.getProperty("java.home");
+        String javaBin = javaHome + File.separator + "bin" + File.separator + "java";
+        String classpath = System.getProperty("java.class.path");
+        String className = NIOEchoServer.class.getCanonicalName();
+
+        ProcessBuilder builder = new ProcessBuilder(javaBin, "-cp", classpath, className);
+        return builder.start();
+    }
+
 }
