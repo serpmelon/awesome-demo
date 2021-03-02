@@ -9,29 +9,31 @@ import java.util.concurrent.TimeUnit;
  **/
 public class WhileTest {
 
-    public static boolean flag = true;
+    public static volatile boolean flag = false;
 
     public static void main(String[] args) {
 
-        new Thread(()->{
-            try {
-                TimeUnit.MILLISECONDS.sleep(100L);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            flag = false;
-        }).start();
+//        new Thread(()->{
+//            try {
+//                TimeUnit.MILLISECONDS.sleep(100L);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            flag = false;
+//        }).start();
+//        test();
         test();
     }
 
     public static void test() {
-        while (flag){
-            try {
-                TimeUnit.MILLISECONDS.sleep(1L);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        System.out.println("stop");
+        flag = true;
+        boolean x = flag;
+//        while (flag){
+//            try {
+//                TimeUnit.MILLISECONDS.sleep(1L);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 }

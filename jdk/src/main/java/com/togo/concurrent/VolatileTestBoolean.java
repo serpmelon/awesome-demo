@@ -1,6 +1,7 @@
 package com.togo.concurrent;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -11,15 +12,16 @@ import java.util.concurrent.atomic.AtomicInteger;
  **/
 public class VolatileTestBoolean  {
 
-    public static boolean flag = false;
+    public static volatile boolean flag = false;
 
 
     public static void main(String[] args) {
 
+        LinkedBlockingQueue queue = new LinkedBlockingQueue();
         T1 t1 = new T1();
         t1.start();
         try {
-            TimeUnit.MILLISECONDS.sleep(1000L);
+            TimeUnit.SECONDS.sleep(1L);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -37,7 +39,7 @@ public class VolatileTestBoolean  {
 //                } catch (InterruptedException e) {
 //                    e.printStackTrace();
 //                }
-                System.out.println("t1");
+//                System.out.println("t1");
 //                flag = false;
             }
             System.out.println("flag1 " + flag);
