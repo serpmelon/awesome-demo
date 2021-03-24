@@ -2,6 +2,8 @@ package com.togo.nio.example;
 
 import java.io.IOException;
 import java.nio.file.*;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -19,8 +21,8 @@ public class LineByLine {
         System.out.println(path.toAbsolutePath());
 
         try(Stream<String> lines = Files.lines(path)) {
-
-            lines.forEach(System.out::println);
+            List<String> list = lines.collect(Collectors.toList());
+            list.forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();
         }
