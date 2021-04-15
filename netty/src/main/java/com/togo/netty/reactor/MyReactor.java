@@ -2,9 +2,11 @@ package com.togo.netty.reactor;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -54,10 +56,63 @@ public class MyReactor implements Runnable {
         }
     }
 
-    class Acceptor implements Runnable{
+    class Acceptor implements Runnable {
 
         @Override
         public void run() {
+
+            try {
+                SocketChannel c = serverSocket.accept();
+                if (c != null) {
+                    new Handler(selector, c);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    static final class Handler implements Runnable {
+
+        SocketChannel socket;
+        SelectionKey sk;
+
+        ByteBuffer input = ByteBuffer.allocate(1000);
+        ByteBuffer output = ByteBuffer.allocate(1000);
+
+        static final int READING = 0, SENDING = 1;
+        int state = READING;
+
+        public Handler(Selector selector, SocketChannel c) {
+            try {
+                socket = c;
+                c.configureBlocking(false);
+                sk = socket.register(selector, 0);
+                sk.attach(this);
+                sk.interestOps(SelectionKey.OP_READ);
+                selector.wakeup();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        public void run() {
+
+            try {
+                if (state == READING) {
+                    read();
+                }
+            } catch (IOException e) {
+
+            }
+        }
+
+        void read() throws IOException {
+            socket.read(input);
+        }
+
+        void send() {
 
         }
     }
