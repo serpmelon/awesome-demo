@@ -14,7 +14,7 @@
 
         <spring-boot.version>2.1.8.RELEASE</spring-boot.version>
         <sharding-sphere.version>4.0.0</sharding-sphere.version>
-        <mybatis.version>3.5.2</mybatis.version>
+        <mybatis.version>3.5.6</mybatis.version>
         <mybatis-springboot.version>2.1.0</mybatis-springboot.version>
         <pagehelper.version>5.1.10</pagehelper.version>
         <druid-springboot.version>1.1.20</druid-springboot.version>
