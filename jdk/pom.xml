@@ -21,6 +21,10 @@
             <artifactId>guava</artifactId>
             <groupId>com.google.guava</groupId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+        </dependency>
     </dependencies>
 
 

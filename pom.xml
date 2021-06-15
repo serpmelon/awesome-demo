@@ -92,11 +92,13 @@
                 <version>${fastjson.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
             <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-elasticsearch</artifactId>
-                <version>4.0.0.RELEASE</version>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.4</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 
