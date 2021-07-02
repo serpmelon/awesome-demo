@@ -1,5 +1,6 @@
 package com.togo.netty.daily.day3;
 
+import com.togo.netty.daily.day8.ClientHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -23,10 +24,11 @@ public class NettyClient {
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     public void initChannel(SocketChannel ch) {
+                        ch.pipeline().addLast(new ClientHandler());
                     }
                 });
         // 4.建立连接
-        bootstrap.connect("km.sankuai.com", 80).addListener(future -> {
+        bootstrap.connect("127.0.0.1", 8000).addListener(future -> {
             if (future.isSuccess()) {
                 System.out.println("连接成功!");
             } else {
