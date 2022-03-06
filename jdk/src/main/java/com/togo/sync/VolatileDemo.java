@@ -55,5 +55,7 @@ public class VolatileDemo extends Thread {
         }
 
         countDownLatch.countDown();
+
+
     }
 }
