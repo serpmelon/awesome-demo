@@ -97,6 +97,14 @@
                 <artifactId>spring-data-elasticsearch</artifactId>
                 <version>4.0.0.RELEASE</version>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>29.0-jre</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -120,6 +128,7 @@
         <module>zookeeper</module>
         <module>jdk</module>
         <module>netty</module>
+        <module>exam</module>
     </modules>
 
 </project>
