@@ -23,7 +23,7 @@
         <!--tools-->
         <guava.version>28.0-jre</guava.version>
         <junit.version>4.12</junit.version>
-        <fastjson.version>1.2.58</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <commons-lang.version>3.9</commons-lang.version>
         <swagger.version>2.9.2</swagger.version>
